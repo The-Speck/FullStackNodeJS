@@ -7,7 +7,7 @@ module.exports = {
         "redirect_uris": [ process.env.GOOGLE_AUTH_URI ],
     },
     "session": {
-        "cookieKey": uuid()
+        "cookieKey": (uuid() + uuid()).replace(/-/g, '')
     },
     "mongo": {
         "mongoURI": process.env.MONGO_URI
