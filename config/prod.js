@@ -4,7 +4,7 @@ module.exports = {
     "googleClient": {
         "client_id": process.env.GOOGLE_CLIENT_ID,
         "client_secret": process.env.GOOGLE_CLIENT_SECRET,
-        "redirect_uris": [process.env.GOOGLE_AUTH_URI],
+        "redirect_uris": [ process.env.GOOGLE_AUTH_URI ],
     },
     "session": {
         "cookieKey": uuid()
