@@ -10,8 +10,6 @@ module.exports = {
         "cookieKey": uuid()
     },
     "mongo": {
-        "user": process.env.MONGO_USER,
-        "pw": process.env.MONGO_USER_PASS,
         "mongoURI": process.env.MONGO_URI
     }
 };
