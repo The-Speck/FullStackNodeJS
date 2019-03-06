@@ -22,6 +22,7 @@ passport.use(
             proxy: true
         },
         (accessToken, refreshToken, profile, done) => {
+            console.log("checking user profile id in the db", profile);
             User.findOne({
                 googleId: profile.id
             }).then((exisitingUser) => {
