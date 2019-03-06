@@ -27,8 +27,10 @@ passport.use(
                 googleId: profile.id
             }).then((exisitingUser) => {
                 if (exisitingUser) {
+                    console.log("found user", exisitingUser);
                     done(null, exisitingUser);
                 } else {
+                    console.log("creating user with profile id", profile.id);
                     new User({ googleId: profile.id })
                         .save()
                         .then(user => done(null, user));
