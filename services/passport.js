@@ -21,21 +21,22 @@ passport.use(
             callbackURL: '/auth/google/callback',
             proxy: true
         },
-        (accessToken, refreshToken, profile, done) => {
+        async (accessToken, refreshToken, profile, done) => {
             console.log("checking user profile id in the db", profile);
-            User.findOne({
+            const existingUser = await User.findOne({
                 googleId: profile.id
-            }).then((exisitingUser) => {
-                if (exisitingUser) {
-                    console.log("found user", exisitingUser);
-                    done(null, exisitingUser);
-                } else {
-                    console.log("creating user with profile id", profile.id);
-                    new User({ googleId: profile.id })
-                        .save()
-                        .then(user => done(null, user));
-                }
             });
+
+            if (existingUser) {
+                console.log("found user", existingUser);
+                return done(null, existingUser);
+            } 
+
+            console.log("creating user with profile id", profile.id);
+            const user = await new User({
+                googleId: profile.id
+            }).save();
+            done(null, user);
         }
     )
 );
