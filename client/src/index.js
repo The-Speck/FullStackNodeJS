@@ -5,15 +5,18 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers';
 import reduxThunk from 'redux-thunk';
-import createLogger from 'redux-logger';
 
 import App from './components/App';
 
-const store = createStore(
-  reducers,
-  {},
-  applyMiddleware(reduxThunk, createLogger)
-);
+const middlewares = [reduxThunk];
+
+if (process.env.NODE_ENV === `development`) {
+  const { logger } = require(`redux-logger`);
+
+  middlewares.push(logger);
+}
+
+const store = createStore(reducers, {}, applyMiddleware(...middlewares));
 
 ReactDOM.render(
   <Provider store={store}>
