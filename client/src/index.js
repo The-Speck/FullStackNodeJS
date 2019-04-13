@@ -21,3 +21,6 @@ ReactDOM.render(
   </Provider>,
   document.querySelector('#root')
 );
+
+console.log('Strip key is: ', process.env.REACT_APP_STRIPE_KEY);
+console.log('Env is: ', process.env.NODE_ENV);
