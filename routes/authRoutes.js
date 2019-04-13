@@ -17,7 +17,7 @@ module.exports = (app) => {
     )
 
     app.get(
-        '/api/logout', 
+        '/api/logout',
         (req, res) => {
             console.log('logging out user', req.user);
             req.logout();
@@ -26,7 +26,7 @@ module.exports = (app) => {
     )
 
     app.get(
-        '/api/user', 
+        '/api/user',
         (req, res) => {
             console.log('Sending user', req.user);
             res.send(req.user);

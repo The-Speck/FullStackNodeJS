@@ -9,9 +9,15 @@ import createLogger from 'redux-logger';
 
 import App from './components/App';
 
-const store = createStore(reducers, {}, applyMiddleware(createLogger, reduxThunk));
+const store = createStore(
+  reducers,
+  {},
+  applyMiddleware(reduxThunk, createLogger)
+);
 
 ReactDOM.render(
-    <Provider store={store}><App /></Provider>, 
-    document.querySelector('#root')
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.querySelector('#root')
 );
