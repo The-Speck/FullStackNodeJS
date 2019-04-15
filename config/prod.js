@@ -15,5 +15,6 @@ module.exports = {
   stripe: {
     pk: process.env.STRIPE_PK,
     sk: process.env.STRIPE_SK
-  }
+  },
+  sendGridKey: process.env.SEND_GRID_KEY
 };
