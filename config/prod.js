@@ -16,5 +16,6 @@ module.exports = {
     pk: process.env.STRIPE_PK,
     sk: process.env.STRIPE_SK
   },
-  sendGridKey: process.env.SEND_GRID_KEY
+  sendGridKey: process.env.SEND_GRID_KEY,
+  redirectDomain: process.env.REDIRECT_DOMAIN
 };
