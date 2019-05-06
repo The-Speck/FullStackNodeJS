@@ -9,10 +9,6 @@ import reduxThunk from 'redux-thunk';
 
 import App from './components/App';
 
-// Development only
-import axios from 'axios';
-window.axios = axios;
-
 const middlewares = [reduxThunk];
 
 if (process.env.NODE_ENV === `development`) {
